@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Enter your name: </h3><input type="text" [(ngModel)]="username">
+            <p> Welcome {{username ?? ""}}</p>
+
+            <button type="button" class="btn btn-primary" [disabled]="!username" (click)="onClear()">Clear</button>
+
+        </div>
+
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <button type="button" class="btn btn-success" (click)="onToggleDisplayDetails()">Display details</button>
+
+            @if (isDisplayed) {
+            <p>A well-known quote, contained in a blockquote element.</p>
+            }
+            <p>
+            <hr>
+            @for (action of buttonClickActions; track $index) {
+            <p [ngStyle]="{backgroundColor: $index >4 ?'blue':''}"
+                [ngClass]="{'white-text':$index > 4}">{{action}}</p>
+            }
+        </div>
+
+    </div>
+</div>
